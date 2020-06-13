@@ -19,7 +19,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('.asdasda', action)
   switch (action.type) {
     case LOADING:
       return { ...state, loading: true, hasErrors: false }
