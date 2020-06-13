@@ -10,6 +10,7 @@
   "dependencies": {
     "js-cookie": "^2.2.1",
     "next": "9.4.4",
+    "next-cookies": "^2.0.3",
     "next-redux-wrapper": "^6.0.2",
     "postcss-preset-env": "^6.7.0",
     "react": "16.13.1",
@@ -18,6 +19,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "unfetch": "^4.1.0",
+    "with-query": "^1.3.0"
   }
 }
