@@ -1,5 +1,5 @@
 import apiClient from '../modules/ApiClient'
-import { login as _login } from '../modules/Auth'
+import { login as _login, logout as _logout } from '../modules/Auth'
 
 const preUrl = '/api'
 // Actions
@@ -45,6 +45,10 @@ export const loggedIn = (user, token, role) => {
   return { type: LOADED, payload: { user, token, role, isAuthenticated: Object.keys(user).length > 0 } }
 }
 
+export const loggedOff = () => {
+  return { type: LOADED, payload: { user: {}, token: '', role: '', isAuthenticated: false } }
+}
+
 export const reset = (user, token, role) => {
   return { type: RESET_ALL }
 }
@@ -61,5 +65,12 @@ export const login = ({ email, password }) => {
         _login(token)
       })
       .catch(() => dispatch(loginFailed()))
+  }
+}
+
+export const logout = (token) => {
+  return dispatch => {
+    _logout()
+    return dispatch(loggedOff())
   }
 }

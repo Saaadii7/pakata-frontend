@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from '../modules/I18n'
-import NoobCar from '../components/LanguageSelect'
-
-// import LanguageSelect from '../components/LanguageSelect'
-// import LanguageSelect from '../components/LanguageSelect'
+import withLayout from '../modules/Layout'
+import LanguageSelect from '../components/LanguageSelect'
 
 const Dashboard = ({ query, props }) => {
   // const dispatch = useDispatch()
@@ -30,7 +28,7 @@ const Dashboard = ({ query, props }) => {
       Tapa Tap, Tapa tap
       <p>I am panda's {role} too</p>
       <div className='flex justify-end pr-5'>
-        <NoobCar />
+        <LanguageSelect />
       </div>
     </div>
   )
@@ -41,4 +39,4 @@ Dashboard.getInitialProps = async ({ query }) => ({
   query
 })
 
-export default Dashboard
+export default withLayout(Dashboard)

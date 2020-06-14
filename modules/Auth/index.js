@@ -3,7 +3,7 @@ import Router from 'next/router'
 import nextCookie from 'next-cookies'
 import Cookie from 'js-cookie'
 
-// import { getDisplayName } from '../Utils'
+import { getDisplayName } from '../Utils'
 
 const serverRedirect = ({ res, location }) => {
   res.writeHead(302, { location: location || '/' })
@@ -69,7 +69,6 @@ export const withAuthSync = (Page) => {
     }
 
     render () {
-      console.log('asdada-------------------')
       return <Page {...this.props} />
     }
   }

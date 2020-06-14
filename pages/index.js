@@ -11,9 +11,6 @@ const LoginPage = ({ query }) => {
   const dispatch = useDispatch()
   const { loading, hasErrors } = useSelector(state => state.session)
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   const handleSubmit = (email, password) => {
     dispatch(login({ email, password }))
   }
@@ -42,6 +39,7 @@ const LoginPage = ({ query }) => {
 }
 
 LoginPage.getInitialProps = async ({ query }) => ({
+  namespacesRequired: ['common'],
   query
 })
 
