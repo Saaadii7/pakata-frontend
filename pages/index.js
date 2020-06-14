@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import SnowStorm from 'react-snowstorm'
+import SnowStorm from 'react-snowstorm'
 import { login, reset } from '../store/session'
 
 // import LoginForm from '../components/LoginForm'
@@ -18,7 +18,7 @@ const LoginPage = ({ query }) => {
   useEffect(() => {
     let mounted = true
 
-    mounted && dispatch(reset())
+    // mounted && dispatch(reset())
 
     return () => {
       mounted = false
@@ -26,15 +26,17 @@ const LoginPage = ({ query }) => {
   }, [])
 
   // NOTE:: ADD THIS LINE OF CODE BEFORE LOGIN FORM TO ADD SNOW EFFECT.
-  // <SnowStorm followMouse={false} vMaxX={4} vMaxY={4} />
   return (
-    <div className='p-4 shadow rounded bg-white'>
-      <h1 className='text-purple-500 leading-normal'>Next.js</h1>
-      <p className='text-gray-500'>with Tailwind CSS</p>
-      <button onClick={() => handleSubmit('saad@gmail.com', '12345678')}>
+    <>
+      <SnowStorm followMouse={false} vMaxX={4} vMaxY={4} />
+      <div className='p-4 shadow rounded bg-white'>
+        <h1 className='text-purple-500 leading-normal'>Next.js</h1>
+        <p className='text-gray-500'>with Tailwind CSS</p>
+        <button onClick={() => handleSubmit('saad@gmail.com', '12345678')}>
         Fuck Panda
-      </button>
-    </div>
+        </button>
+      </div>
+    </>
   )
 }
 

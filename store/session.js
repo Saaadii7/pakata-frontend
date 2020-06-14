@@ -42,7 +42,7 @@ export const loginFailed = () => {
 }
 
 export const loggedIn = (user, token, role) => {
-  return { type: LOADED, payload: { user, token, role, isAuthenticated: Object.keys(user).length > 0 } }
+  return { type: LOADED, payload: { user, token, role, isAuthenticated: !!user } }
 }
 
 export const loggedOff = () => {

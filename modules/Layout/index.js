@@ -21,7 +21,7 @@ const LegalFooter = () => {
         <a className='hover:text-argo-primary-2 mx-4'>{t('legal')}</a>
       </Link>
       <Link href='/terms-of-service'>
-        <a className='hover:text-argo-primary-2 mx-4'>{t('tos')}</a>
+        <a className='hover:text-argo-primary-2 mx-4'>{t('terms')}</a>
       </Link>
       <Link href='/privacy-policy'>
         <a className='hover:text-argo-primary-2 mx-4'>{t('privacy')}</a>
