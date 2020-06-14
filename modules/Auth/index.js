@@ -3,7 +3,7 @@ import Router from 'next/router'
 import nextCookie from 'next-cookies'
 import Cookie from 'js-cookie'
 
-// import { getDisplayName } from '../Utils'
+import { getDisplayName } from '../Utils'
 
 const serverRedirect = ({ res, location }) => {
   res.writeHead(302, { location: location || '/' })
@@ -28,15 +28,15 @@ const auth = (ctx) => {
   return token
 }
 
-export const login = (token) => {
+export const login = async (token) => {
   Cookie.set('token', token, { expires: 1 })
-  Router.push('/dashboard')
+  await Router.push('/dashboard')
 }
 
-export const logout = () => {
+export const logout = async () => {
   Cookie.remove('token')
   window.localStorage.setItem('logout', Date.now())
-  Router.push('/')
+  await Router.push('/')
 }
 
 export const withAuthSync = (Page) => {
@@ -69,7 +69,6 @@ export const withAuthSync = (Page) => {
     }
 
     render () {
-      console.log('asdada-------------------')
       return <Page {...this.props} />
     }
   }
