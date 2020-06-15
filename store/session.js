@@ -1,5 +1,5 @@
 import apiClient from '../modules/ApiClient'
-import { login as _login } from '../modules/Auth'
+import { login as _login, logout as _logout } from '../modules/Auth'
 
 const preUrl = '/api'
 // Actions
@@ -19,7 +19,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('.asdasda', action)
   switch (action.type) {
     case LOADING:
       return { ...state, loading: true, hasErrors: false }
@@ -43,7 +42,11 @@ export const loginFailed = () => {
 }
 
 export const loggedIn = (user, token, role) => {
-  return { type: LOADED, payload: { user, token, role, isAuthenticated: Object.keys(user).length > 0 } }
+  return { type: LOADED, payload: { user, token, role, isAuthenticated: !!user } }
+}
+
+export const loggedOff = () => {
+  return { type: LOADED, payload: { user: {}, token: '', role: '', isAuthenticated: false } }
 }
 
 export const reset = (user, token, role) => {
@@ -62,5 +65,12 @@ export const login = ({ email, password }) => {
         _login(token)
       })
       .catch(() => dispatch(loginFailed()))
+  }
+}
+
+export const logout = (token) => {
+  return dispatch => {
+    _logout()
+    return dispatch(loggedOff())
   }
 }
