@@ -28,15 +28,15 @@ const auth = (ctx) => {
   return token
 }
 
-export const login = async (token) => {
+export const login = (token) => {
   Cookie.set('token', token, { expires: 1 })
-  await Router.push('/dashboard')
+  Router.push('/dashboard')
 }
 
-export const logout = async () => {
+export const logout = () => {
   Cookie.remove('token')
   window.localStorage.setItem('logout', Date.now())
-  await Router.push('/')
+  Router.push('/')
 }
 
 export const withAuthSync = (Page) => {
