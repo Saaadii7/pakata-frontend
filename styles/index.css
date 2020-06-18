@@ -1,7 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
+html{
+  height: 100%;
+}
 body {
-  @apply bg-blue-500  p-12;
+  @apply bg-blue-500;
+  height: 100%;
 }
