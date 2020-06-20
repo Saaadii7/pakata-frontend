@@ -1,4 +1,4 @@
-const uuidv4 = require('uuid')
+const { uuid } = require('uuidv4')
 
 const sessionCookie = (req, res, next) => {
   const htmlPage =
@@ -12,7 +12,7 @@ const sessionCookie = (req, res, next) => {
   }
 
   if (!req.cookies.sid || req.cookies.sid.length === 0) {
-    req.cookies.sid = uuidv4()
+    req.cookies.sid = uuid()
     res.cookie('sid', req.cookies.sid, { sameSite: true })
   }
 

@@ -36,7 +36,7 @@ export const login = (token) => {
 export const logout = () => {
   Cookie.remove('token')
   window.localStorage.setItem('logout', Date.now())
-  Router.push('/')
+  Router.push('/login')
 }
 
 export const withAuthSync = (Page) => {

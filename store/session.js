@@ -13,6 +13,7 @@ const initialState = {
   user: {},
   token: '',
   isAuthenticated: false,
+  roles: [],
   role: '',
   loading: false,
   hasErrors: false
@@ -45,6 +46,10 @@ export const loggedIn = (user, token, role) => {
   return { type: LOADED, payload: { user, token, role, isAuthenticated: !!user } }
 }
 
+export const emailConfirmed = (roles) => {
+  return { type: LOADED, payload: { roles } }
+}
+
 export const loggedOff = () => {
   return { type: LOADED, payload: { user: {}, token: '', role: '', isAuthenticated: false } }
 }
@@ -54,14 +59,27 @@ export const reset = (user, token, role) => {
 }
 
 // API Requests
-export const login = ({ email, password }) => {
+export const checkEmail = ({ email }) => {
   return dispatch => {
     dispatch(logingIn())
     return apiClient
-      .post(`${preUrl}/users/sign_in`, { email, password })
+      .post(`${preUrl}/users/confirm_email`, { session: { email } })
+      .then(resp => resp.json())
+      .then(({ session: { roles } }) => {
+        dispatch(emailConfirmed(roles))
+      })
+      .catch(() => dispatch(loginFailed()))
+  }
+}
+
+export const login = (email, password, role) => {
+  return dispatch => {
+    dispatch(logingIn())
+    return apiClient
+      .post(`${preUrl}/users/sign_in`, { session: { email, password, role } })
       .then(resp => resp.json())
       .then(({ session: { user, token, roles } }) => {
-        dispatch(loggedIn(user, token, roles[0]))
+        dispatch(loggedIn(user, token, roles))
         _login(token)
       })
       .catch(() => dispatch(loginFailed()))
