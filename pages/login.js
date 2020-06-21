@@ -50,9 +50,8 @@ const LoginPage = ({ query, roles }) => {
 
   // NOTE:: ADD THIS LINE OF CODE BEFORE LOGIN FORM TO ADD SNOW EFFECT.
   return (
-    <div className='w-full gradient-2 pt-24 pb-24' style={{ minHeight: 'calc(100vh - 272px)' }}>
-      <SnowStorm followMouse={false} vMaxX={4} vMaxY={4} />
-      <div className='w-full h-full max-w-xs m-auto'>
+    <div className='w-full gradient-2'>
+      <div className='w-full h-full max-w-xs m-auto flex justify-center items-center h-screen flex-col'>
         <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' onSubmit={handleSubmit}>
           <div className='mb-4'>
             <input onChange={e => setEmail(e.target.value)} value={email} className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='email' type='text' placeholder='Enter Your Email' />

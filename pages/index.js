@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SnowStorm from 'react-snowstorm'
 import { login, reset } from '../store/session'
+import Header from '../components/Header'
 
 // import LoginForm from '../components/LoginForm'
 // import ForgetPasswordModal from '../components/ForgetPasswordModal'
@@ -28,7 +29,7 @@ const LoginPage = ({ query }) => {
   // NOTE:: ADD THIS LINE OF CODE BEFORE LOGIN FORM TO ADD SNOW EFFECT.
   return (
     <>
-      {/* <SnowStorm followMouse={false} vMaxX={4} vMaxY={4} /> */}
+      <Header  />
       <div className='p-4 shadow rounded bg-white'>
         <h1 className='text-purple-500 leading-normal'>Next.js</h1>
         <p className='text-gray-500'>with Tailwind CSS</p>
