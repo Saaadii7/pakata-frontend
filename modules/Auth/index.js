@@ -10,8 +10,8 @@ const serverRedirect = ({ res, location }) => {
   res.end()
 }
 
-const clientRedirect = ({ location }) => {
-  Router.push(location || '/')
+const clientRedirect = () => {
+  Router.push("/dashboard" || '/')
 }
 
 const auth = (ctx) => {

@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 import { appWithTranslation } from '../modules/I18n'
-
 import withRedux from '../modules/Redux'
 
 class Pakata extends App {

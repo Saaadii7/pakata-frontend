@@ -1,7 +1,9 @@
 import SelectInput from './select_input'
+import Button from './button'
+import Input from './text_input'
 
-const Form = {
-  SelectInput
+module.exports = {
+  SelectInput,
+  Button,
+  Input
 }
-
-export default Form

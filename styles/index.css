@@ -1,7 +1,8 @@
+/* @import 'antd/dist/antd.css'; */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
+@import "~antd/dist/antd.css";
 body {
   @apply bg-blue-500 p-12;
 }

@@ -1,14 +1,19 @@
-const Button = ({ extraClasses = '', onClick, type, text }) => {
+import { SimpleButton } from '../Buttons'
+
+const Button = ({extraClasses = '',onClick, type, text, size, shape, icon, ghost, disabled, block }) => {
   return (
-    <button
-      className={`${extraClasses} cursor-pointer gradient-1-reverse outline-none
-                 px-2 py-1 relative rounded-lg shadow text-white tracking-tighter
-                 transition uppercase`}
-      type={type}
-      onClick={onClick}
+    <SimpleButton
+    type={type} 
+    size={size}
+    shape={shape}
+    icon={icon}
+    block={block}
+    ghost={ghost}
+    disabled={disabled}
+    onClick={onClick}
+    text={text}
     >
-      {text}
-    </button>
+    </SimpleButton>
   )
 }
 
